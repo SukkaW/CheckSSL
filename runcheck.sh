@@ -22,4 +22,4 @@ echo '"start": "'$start'",' >> tmp/${1}.json
 echo '"expire": "'$expire'",' >> tmp/${1}.json
 echo '"issuer": "'$issuer'",' >> tmp/${1}.json
 echo '"status": "'$status'"' >> tmp/${1}.json
-echo '}' >> tmp/${1}.json
+echo '},' >> tmp/${1}.json
