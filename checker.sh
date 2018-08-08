@@ -21,6 +21,12 @@ echo ']' >> ./tmp/api/ct.json
 
 sed -i ':label;N;s/\n/ /;b label' ./tmp/api/ct.json
 
+sed -i 's|\* start date: ||g' ./tmp/api/ct.json
+sed -i 's|\* expire date: ||g' ./tmp/api/ct.json
+sed -i 's|\* issuer: ||g' ./tmp/api/ct.json
+sed -i 's|\* SSL certificate verify ||g' ./tmp/api/ct.json
+sed -i 's|ok.|ok|g' ./tmp/api/ct.json
+
 sed -i "s|\" \"||g" ./tmp/api/ct.json
 sed -i "s|\"\: \"|\"\:\"|g" ./tmp/api/ct.json
 sed -i "s|\"\, \"|\"\,\"|g" ./tmp/api/ct.json
