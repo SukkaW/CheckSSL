@@ -1,3 +1,5 @@
+mkdir ./tmp -p
+
 curl https://${1} -k -v -s -o /dev/null 2> ./tmp/ca.info
 
 cat ./tmp/ca.info | grep 'start date: ' > ./tmp/${1}.info
@@ -19,10 +21,8 @@ expire=$(sed -n '2p' ./tmp/${1}.info)
 issuer=$(sed -n '3p' ./tmp/${1}.info)
 status=$(sed -n '4p' ./tmp/${1}.info)
 
-rm -f tmp/ca.info
-rm -f tmp/${1}.info
-
-mkdir tmp -p
+rm -f ./tmp/ca.info
+rm -f ./tmp/${1}.info
 
 DATE="$(echo $(date '+%Y-%m-%d %H:%M:%S'))"
 

@@ -1,4 +1,4 @@
-chmod +x runcheck.sh
+chmod +x ./runcheck.sh
 
 mkdir ./tmp/api -p
 
@@ -26,7 +26,7 @@ sed -i "s|\"\: \"|\"\:\"|g" ./tmp/api/ct.json
 sed -i "s|\"\, \"|\"\,\"|g" ./tmp/api/ct.json
 sed -i "s|\" }, { \"|\"},{\"|g" ./tmp/api/ct.json
 
-mkdir output -p
-cp -rf tmp/api/ct.json output/ct.json
+mkdir ./output -p
+cp -rf ./tmp/api/ct.json ./output/ct.json
 
-rm -rf tmp
+rm -rf ./tmp
