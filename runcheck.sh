@@ -7,14 +7,10 @@ cat ./tmp/ca.info | grep 'expire date: ' >> ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'issuer: ' >> ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'SSL certificate verify' >> ./tmp/${1}.info
 
-cat ./tmp/${1}.info
-
 sed -i 's|\* \t start date: ||g' ./tmp/${1}.info
 sed -i 's|\* \t expire date: ||g' ./tmp/${1}.info
 sed -i 's|\* \t issuer: ||g' ./tmp/${1}.info
 sed -i 's|\* \t SSL certificate verify ||g' ./tmp/${1}.info
-
-cat ./tmp/${1}.info
 
 start=$(sed -n '1p' ./tmp/${1}.info)
 expire=$(sed -n '2p' ./tmp/${1}.info)
