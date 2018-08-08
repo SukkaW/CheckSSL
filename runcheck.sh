@@ -7,10 +7,10 @@ cat ./tmp/ca.info | grep 'SSL certificate verify' >> ./tmp/${1}.info
 
 cat ./tmp/${1}.info
 
-sed -i 's|\* start date: ||g' ./tmp/${1}.info
-sed -i 's|\* expire date: ||g' ./tmp/${1}.info
-sed -i 's|\* issuer: ||g' ./tmp/${1}.info
-sed -i 's|\* SSL certificate verify ||g' ./tmp/${1}.info
+sed -i 's|\* \t start date: ||g' ./tmp/${1}.info
+sed -i 's|\* \t expire date: ||g' ./tmp/${1}.info
+sed -i 's|\* \t issuer: ||g' ./tmp/${1}.info
+sed -i 's|\* \t SSL certificate verify ||g' ./tmp/${1}.info
 
 cat ./tmp/${1}.info
 
