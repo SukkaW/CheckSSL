@@ -26,5 +26,7 @@ sed -i "s|\"\: \"|\"\:\"|g" ./tmp/api/ct.json
 sed -i "s|\"\, \"|\"\,\"|g" ./tmp/api/ct.json
 sed -i "s|\" }, { \"|\"},{\"|g" ./tmp/api/ct.json
 
-mkdir public -p
-cp -rf tmp/api/ct.json public/ct.json
+mkdir output -p
+cp -rf tmp/api/ct.json output/ct.json
+
+rm -rf tmp
