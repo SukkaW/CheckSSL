@@ -13,5 +13,6 @@ deploy:
   target_branch: gh-pages
   email: $GITHUB_EMAIL
   name: $GITHUB_USER
+  local-dir: public
   on:
     branch: master
