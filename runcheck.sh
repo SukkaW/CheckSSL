@@ -50,6 +50,6 @@ else
     echo '"statuscolor": "error",' >> ./tmp/${1}.json
 fi
 
-echo '"check": "'$DATE'"' >> ./tmp/${1}.json
+echo '"check": "'$DATE'",' >> ./tmp/${1}.json
 echo '"remain": "'$expireday'"' >> ./tmp/${1}.json
 echo '},' >> ./tmp/${1}.json
