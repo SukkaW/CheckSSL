@@ -5,10 +5,10 @@ cat ./tmp/ca.info | grep 'expire date: ' >> ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'issuer: ' >> ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'SSL certificate verify' >> ./tmp/${1}.info
 
-sed -i 's|* start date: ||g' ./tmp/${1}.info
-sed -i 's|* expire date: ||g' ./tmp/${1}.info
-sed -i 's|* issuer: ||g' ./tmp/${1}.info
-sed -i 's|* SSL certificate verify ||g' ./tmp/${1}.info
+sed -i 's|\* start date: ||g' ./tmp/${1}.info
+sed -i 's|\* expire date: ||g' ./tmp/${1}.info
+sed -i 's|\* issuer: ||g' ./tmp/${1}.info
+sed -i 's|\* SSL certificate verify ||g' ./tmp/${1}.info
 
 start=$(sed -n '1p' ./tmp/${1}.info)
 expire=$(sed -n '2p' ./tmp/${1}.info)
@@ -32,7 +32,7 @@ echo '"start": "'$start'",' >> ./tmp/${1}.json
 echo '"expire": "'$expire'",' >> ./tmp/${1}.json
 echo '"issuer": "'$issuer'",' >> ./tmp/${1}.json
 
-if [ $expirestamp < $nowstamp ]; then
+if [ $expirestamp \< $nowstamp ]; then
     echo '"status": "Expired",' >> ./tmp/${1}.json
     echo '"statuscolor": "error",' >> ./tmp/${1}.json
 elif [ $expireday \< 10 ]; then
