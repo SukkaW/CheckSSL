@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "10"
+dist: trusty
+install:
+  - chmod +x ./checker.sh
+script:
+  - ./checker.sh suka.moe www.suka.moe blog.suka.moe lab.suka.moe cdn.suka.moe theme.suka.moe suka.js.org
