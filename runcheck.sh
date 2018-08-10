@@ -53,5 +53,3 @@ fi
 echo '"check": "'$DATE'",' >> ./tmp/${1}.json
 echo '"remain": "'$expireday'"' >> ./tmp/${1}.json
 echo '},' >> ./tmp/${1}.json
-
-cat ./tmp/${1}.json
