@@ -31,7 +31,7 @@ expireday=`expr $[expirestamp-nowstamp] / 86400`
 
 echo '{' > tmp/${1}.json
 echo '"domain": "'${1}'",' >> ./tmp/${1}.json
-echo '"subject": "'$subjec'",' >> ./tmp/${1}.json
+echo '"subject": "'$subject'",' >> ./tmp/${1}.json
 echo '"start": "'$start'",' >> ./tmp/${1}.json
 echo '"expire": "'$expire'",' >> ./tmp/${1}.json
 echo '"issuer": "'$issuer'",' >> ./tmp/${1}.json
