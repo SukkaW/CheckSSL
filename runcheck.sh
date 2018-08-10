@@ -2,9 +2,6 @@ mkdir ./tmp -p
 
 curl https://${1} -k -v -s -o /dev/null 2> ./tmp/ca.info
 
-cat ./tmp/ca.info
-
-
 cat ./tmp/ca.info | grep 'start date: ' > ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'expire date: ' >> ./tmp/${1}.info
 cat ./tmp/ca.info | grep 'issuer: ' >> ./tmp/${1}.info
@@ -56,3 +53,5 @@ fi
 echo '"check": "'$DATE'",' >> ./tmp/${1}.json
 echo '"remain": "'$expireday'"' >> ./tmp/${1}.json
 echo '},' >> ./tmp/${1}.json
+
+cat ./tmp/${1}.json
