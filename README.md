@@ -32,7 +32,11 @@ Run `checker.sh` with your domain, just like
 $ ./checker.sh skk.moe www.skk.moe blog.skk.moe lab.skk.moe
 ```
 
-You will get a `ct.json` file at `output` directories with format like:
+You will get a `ct.json` file at `output` directories.
+
+## Output
+
+Here is an exmaple of `ct.json`:
 
 ```json
 [{
@@ -57,6 +61,18 @@ You will get a `ct.json` file at `output` directories with format like:
 	"remain": "331"
 }]
 ```
+
+- **domain** - The domain your check
+- **subject** - Details of your SSL
+- **start** - When your ssl issued
+- **expire** - When your ssl expired
+- **issuer** - Details of your CA's chain
+- **status** - Could be `Valid`, `Invalid`, `Soon Expired`(if it is less than 10d before expired), `Expired`
+- **statuscolor** - `success` for Valid, `warning` for Soon Expired and `error` for Expired or Invilid
+
+> you can work with css framework (such as Bootstrap) using `class="text-${statuscolor}"`
+
+- **remain** - How many days before your ssl expired
 
 ## Author
 
