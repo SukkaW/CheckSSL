@@ -13,11 +13,11 @@
         <h1 class="row">SSL Status</h1>
         <div class="row">
             <template x-for="(item, index) in data" :key="index">
-                <div class="col s12 m6 xl4">
-                    <span x-text="item.status"></span>
+                <div class="col s12 m12 xl4">
                     <div class="card lighten-3" x-bind:class="{'green':item.statuscolor=='success','red':item.statuscolor=='error','yellow':item.statuscolor=='warning'}"
                         style="height: 210px;">
                         <div class="card-content black-text">
+                            <span x-text="item.status" style="float: right;"></span>
                             <span class="card-title" x-text="item.domain"></span>
                             <p><span>Subject: </span><span x-text="item.subject"></span></p>
                             <p><span>Start: </span><span
