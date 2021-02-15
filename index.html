@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>SSL Status</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -14,7 +17,8 @@
         <div class="row">
             <template x-for="(item, index) in data" :key="index">
                 <div class="col s12 m12 xl4">
-                    <div class="card lighten-3" x-bind:class="{'green':item.statuscolor=='success','red':item.statuscolor=='error','yellow':item.statuscolor=='warning'}"
+                    <div class="card lighten-3"
+                        x-bind:class="{'green':item.statuscolor=='success','red':item.statuscolor=='error','yellow':item.statuscolor=='warning'}"
                         style="height: 210px;">
                         <div class="card-content black-text">
                             <span x-text="item.status" style="float: right;"></span>
