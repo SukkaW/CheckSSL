@@ -7,26 +7,26 @@ do
     ./runcheck.sh ${i}
 done
 
-echo '[' > ./tmp/api/ct.json
+echo 'var data = [' > ./tmp/api/ct.js
 
 for i in $@
 do
-    cat ./tmp/${i}.json >> ./tmp/api/ct.json
+    cat ./tmp/${i}.json >> ./tmp/api/ct.js
 done
 
-sed -i '$d' ./tmp/api/ct.json
+sed -i '$d' ./tmp/api/ct.js
 
-echo '}' >> ./tmp/api/ct.json
-echo ']' >> ./tmp/api/ct.json
+echo '}' >> ./tmp/api/ct.js
+echo ']' >> ./tmp/api/ct.js
 
-sed -i ':label;N;s/\n/ /;b label' ./tmp/api/ct.json
+sed -i ':label;N;s/\n/ /;b label' ./tmp/api/ct.js
 
-sed -i "s|\" \"||g" ./tmp/api/ct.json
-sed -i "s|\"\: \"|\"\:\"|g" ./tmp/api/ct.json
-sed -i "s|\"\, \"|\"\,\"|g" ./tmp/api/ct.json
-sed -i "s|\" }, { \"|\"},{\"|g" ./tmp/api/ct.json
+sed -i "s|\" \"||g" ./tmp/api/ct.js
+sed -i "s|\"\: \"|\"\:\"|g" ./tmp/api/ct.js
+sed -i "s|\"\, \"|\"\,\"|g" ./tmp/api/ct.js
+sed -i "s|\" }, { \"|\"},{\"|g" ./tmp/api/ct.js
 
 mkdir ./output -p
-cp -rf ./tmp/api/ct.json ./output/ct.json
+cp -rf ./tmp/api/ct.js ./output/ct.js
 
 rm -rf ./tmp

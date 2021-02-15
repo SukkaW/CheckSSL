@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SSL Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="output/ct.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body x-cloak x-data="index()">
+    <div class="container">
+        <h1 class="row">SSL Status</h1>
+        <div class="row">
+            <template x-for="(item, index) in data" :key="index">
+                <div class="col s12 m6 xl4">
+                    <span x-text="item.status"></span>
+                    <div class="card lighten-3" x-bind:class="{'green':item.statuscolor=='success','red':item.statuscolor=='error','yellow':item.statuscolor=='warning'}"
+                        style="height: 210px;">
+                        <div class="card-content black-text">
+                            <span class="card-title" x-text="item.domain"></span>
+                            <p><span>Subject: </span><span x-text="item.subject"></span></p>
+                            <p><span>Start: </span><span
+                                    x-text="new Date(Date.parse(item.start)).Format('yyyy-MM-dd hh:mm:ss')"></span></p>
+                            <p><span>Expire: </span><span
+                                    x-text="new Date(Date.parse(item.expire)).Format('yyyy-MM-dd hh:mm:ss')"></span></p>
+                            <p><span>Issuer: </span><span x-text="item.issuer"></span></p>
+                        </div>
+                        <div class="progress  blue lighten-5" style="position: absolute;bottom: -16px;">
+                            <div class="determinate blue darken-3"
+                                x-bind:style="'width: '+((new Date()-new Date(Date.parse(item.start))) /(new Date(Date.parse(item.expire))-new Date(Date.parse(item.start))))*100+'%'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</body>
+<script>
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1, //月份
+            "d+": this.getDate(), //日
+            "h+": this.getHours(), //小时
+            "m+": this.getMinutes(), //分
+            "s+": this.getSeconds(), //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    function index() {
+        return {}
+    }
+</script>
